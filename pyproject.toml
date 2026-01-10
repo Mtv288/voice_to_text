@@ -1,0 +1,17 @@
+[project]
+name = "voice-to-text-bot"
+version = "0.1.1"
+description = "Телеграм бот преобразования речт в текст и отсылка готовой формы по почте"
+authors = [
+    {name = "Timur Meremkulov",email = "meremkulovtv@gmail.com"}
+]
+license = {text = "open"}
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
