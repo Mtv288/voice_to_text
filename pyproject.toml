@@ -9,6 +9,10 @@ license = {text = "open"}
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
+    "sqlalchemy (>=2.0.45,<3.0.0)",
+    "aiogram (>=3.24.0,<4.0.0)",
+    "ruff (>=0.14.11,<0.15.0)",
+    "pydub (>=0.25.1,<0.26.0)"
 ]
 
 
