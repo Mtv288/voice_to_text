@@ -6,6 +6,7 @@ from aiogram.filters import Command
 from aiogram.types import InputFile
 from pydub import AudioSegment
 
+
 from config import BOT_TOKEN
 from services.speech_recognition import speech_to_text
 from services.text_processing import extract_info
