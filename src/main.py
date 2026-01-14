@@ -1,31 +1,21 @@
 import os
-import json
 import aiohttp
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 from aiogram.types import InputFile
 from pydub import AudioSegment
 
-
 from config import BOT_TOKEN
 from src.services.speech_recognition import speech_to_text
 from src.services.text_processing import extract_info
 
-
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
-
 def convert_to_wav(input_path: str, output_path: str):
     audio = AudioSegment.from_file(input_path)
-    audio = (
-        audio
-        .set_channels(1)
-        .set_sample_width(2)   # 16-bit
-        .set_frame_rate(16000)
-    )
+    audio = audio.set_channels(1).set_sample_width(2).set_frame_rate(16000)
     audio.export(output_path, format="wav")
-
 
 @dp.message(Command("start"))
 async def start(message: types.Message):
@@ -33,7 +23,6 @@ async def start(message: types.Message):
         "Пришли голосовое сообщение.\n"
         "Я распознаю ФИО, дату и задачу."
     )
-
 
 @dp.message()
 async def voice_handler(message: types.Message):
@@ -58,15 +47,16 @@ async def voice_handler(message: types.Message):
         convert_to_wav(ogg_path, wav_path)
 
         # --- распознавание ---
-        text = speech_to_text(wav_path)
+        text = speech_to_text(wav_path)  # <-- используем твою функцию
         info = extract_info(text)
-        print(info)
+        print("Распознанный текст:", text)
+        print("Извлечённая информация:", info)
 
         # --- сохраняем JSON ---
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(info, f, ensure_ascii=False, indent=2)
 
-        # --- отправка ---
+        # --- отправка пользователю ---
         await message.answer(f"Распознанный текст:\n{text}")
         await message.answer_document(InputFile(json_path))
 
@@ -78,17 +68,5 @@ async def voice_handler(message: types.Message):
             if os.path.exists(p):
                 os.remove(p)
 
-
 if __name__ == "__main__":
     dp.run_polling(bot)
-
-
-
-
-
-
-
-
-
-
-
