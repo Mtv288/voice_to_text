@@ -8,8 +8,8 @@ from pydub import AudioSegment
 
 
 from config import BOT_TOKEN
-from services.speech_recognition import speech_to_text
-from services.text_processing import extract_info
+from src.services.speech_recognition import speech_to_text
+from src.services.text_processing import extract_info
 
 
 bot = Bot(token=BOT_TOKEN)
@@ -60,6 +60,7 @@ async def voice_handler(message: types.Message):
         # --- распознавание ---
         text = speech_to_text(wav_path)
         info = extract_info(text)
+        print(info)
 
         # --- сохраняем JSON ---
         with open(json_path, "w", encoding="utf-8") as f:
