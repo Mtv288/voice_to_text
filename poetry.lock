@@ -388,6 +388,18 @@ humanfriendly = ">=9.1"
 cron = ["capturer (>=2.4)"]
 
 [[package]]
+name = "dataparser"
+version = "0.0.2"
+description = "A simple data storing file writer using JSON"
+optional = false
+python-versions = ">=3.6"
+groups = ["main"]
+files = [
+    {file = "dataparser-0.0.2-py3-none-any.whl", hash = "sha256:c01d17bf668ccc2e9eb2c973c388f29eaaa66cc86d63c58ee2d300d0b7479008"},
+    {file = "dataparser-0.0.2.tar.gz", hash = "sha256:374ab88d5619e0da180897ec8990982c8dc7dde318a50cfc5ec5792bb1130a84"},
+]
+
+[[package]]
 name = "dawg-python"
 version = "0.7.2"
 description = "Pure-python reader for DAWGs (DAFSAs) created by dawgdic C++ library or DAWG Python extension."
@@ -2586,4 +2598,4 @@ propcache = ">=0.2.1"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12,<3.13"
-content-hash = "ffa85b3887ad280cfe193593dea927b396e883aaafbeb6b5035b92e839b59f77"
+content-hash = "a9d0c7bd67dbff8c94b8c28d957f5c3bc469da05ce70b7f1b03d9949387ac611"

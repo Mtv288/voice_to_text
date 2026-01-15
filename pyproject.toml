@@ -17,7 +17,8 @@ dependencies = [
     "gigaam (>=0.1.0,<0.2.0)",
     "torchaudio (==2.5.1)",
     "torch (==2.5.1)",
-    "soundfile (>=0.13.1,<0.14.0)"
+    "soundfile (>=0.13.1,<0.14.0)",
+    "dataparser (>=0.0.2,<0.0.3)"
 ]
 
 
